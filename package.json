@@ -1,6 +1,6 @@
 {
   "name": "download-npm-package",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Download a single npm package",
   "main": "dist/index.js",
   "bin": {
