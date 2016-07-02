@@ -7,7 +7,7 @@
     "download-npm-package": "bin/cli.js"
   },
   "scripts": {
-    "test": "babel-tape-runner test.js && semistandard | snazzy",
+    "test": "semistandard | snazzy",
     "build": "rm -rf dist && mkdir -p dist && babel lib --out-dir dist",
     "watch": "rm -rf dist && mkdir -p dist && babel -w lib --out-dir dist",
     "prepublish": "npm run build"
@@ -42,9 +42,7 @@
     "babel-cli": "^6.10.1",
     "babel-core": "^6.10.4",
     "babel-preset-es2015": "^6.9.0",
-    "babel-tape-runner": "^2.0.1",
     "semistandard": "^8.0.0",
-    "snazzy": "^4.0.0",
-    "tapava": "^2.2.0"
+    "snazzy": "^4.0.0"
   }
 }
