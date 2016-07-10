@@ -43,3 +43,25 @@ test('downloadNewPackage', function * (t) {
   yield inject(getPackage)({arg, dir});
   yield shutdown();
 });
+
+test('downloadNewPackage, none standard location in tar', function * (t) {
+  const {baseUrl, shutdown} = yield setupHttpServer((req, res) => {
+    t.is(req.url, '/tarballs/foo-123.tgz');
+    const pack = tar.pack();
+    pack.entry({name: 'foo/package.json'}, JSON.stringify({name: 'foo', version: '123'}));
+    pack.finalize();
+    pack.pipe(createGzip()).pipe(res);
+  });
+  const getPackage = arg => {
+    t.is(arg, 'foo');
+    return Promise.resolve({
+      dist: {
+        tarball: `${baseUrl}/tarballs/foo-123.tgz`
+      }
+    });
+  };
+  const [dir] = yield Promise.promisify(callback => tmp.dir(callback));
+  const arg = 'foo';
+  yield inject(getPackage)({arg, dir});
+  yield shutdown();
+});
