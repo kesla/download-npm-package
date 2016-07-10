@@ -26,7 +26,7 @@
     "bluebird": "^3.4.1",
     "co": "^4.6.0",
     "end-of-stream": "^1.1.0",
-    "get-package-json-from-registry": "^1.0.0",
+    "get-package-json-from-registry": "^2.0.0",
     "got": "^6.3.0",
     "home": "^1.0.1",
     "mkdirp-then": "^1.2.0",
