@@ -25,16 +25,14 @@
   "dependencies": {
     "bluebird": "^3.4.1",
     "co": "^4.6.0",
-    "end-of-stream": "^1.1.0",
+    "download-tarball": "^1.0.0",
     "get-package-json-from-registry": "^2.0.0",
-    "got": "^6.3.0",
     "home": "^1.0.1",
     "mkdirp-then": "^1.2.0",
     "npm-package-arg": "^4.2.0",
     "registry-auth-token": "^2.0.0",
     "registry-url": "^3.1.0",
     "rimraf-then": "^1.0.0",
-    "tar-fs": "^1.13.0",
     "then-fs": "^2.0.0",
     "tmp": "0.0.28"
   },
