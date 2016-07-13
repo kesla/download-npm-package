@@ -23,24 +23,21 @@
   },
   "homepage": "https://github.com/kesla/download-npm-package#readme",
   "dependencies": {
-    "bluebird": "^3.4.1",
     "co": "^4.6.0",
-    "download-tarball": "^1.0.0",
+    "download-package-tarball": "^1.0.0",
     "get-package-json-from-registry": "^2.0.0",
     "home": "^1.0.1",
     "mkdirp-then": "^1.2.0",
     "npm-package-arg": "^4.2.0",
     "registry-auth-token": "^2.0.0",
-    "registry-url": "^3.1.0",
-    "rimraf-then": "^1.0.0",
-    "then-fs": "^2.0.0",
-    "tmp": "0.0.28"
+    "registry-url": "^3.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",
     "babel-core": "^6.10.4",
     "babel-preset-es2015-node4": "^2.1.0",
     "babel-tape-runner": "^2.0.1",
+    "bluebird": "^3.4.1",
     "http-shutdown": "^1.0.3",
     "nyc": "^7.0.0",
     "semistandard": "^8.0.0",
