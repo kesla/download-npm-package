@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/kesla/download-npm-package#readme",
   "dependencies": {
-    "co": "^4.6.0",
     "download-package-tarball": "^1.0.0",
     "get-package-json-from-registry": "^2.0.0",
     "home": "^1.0.1",
@@ -36,6 +35,8 @@
   "devDependencies": {
     "babel-cli": "^6.10.1",
     "babel-core": "^6.10.4",
+    "babel-plugin-syntax-async-functions": "6.8.0",
+    "babel-plugin-transform-async-to-generator": "6.8.0",
     "babel-preset-es2015-node4": "^2.1.0",
     "babel-tape-runner": "^2.0.1",
     "bluebird": "^3.4.1",
