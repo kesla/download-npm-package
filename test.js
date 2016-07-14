@@ -1,11 +1,13 @@
-import test from 'tapava';
-import {inject} from './lib';
-import tar from 'tar-stream';
-import http from 'http';
-import shutdown from 'http-shutdown';
 import {createGzip} from 'zlib';
-import tmp from 'tmp';
+import http from 'http';
+
 import Promise from 'bluebird';
+import test from 'tapava';
+import tar from 'tar-stream';
+import shutdown from 'http-shutdown';
+import tmp from 'tmp';
+
+import {inject} from './lib';
 
 const setupHttpServer = function * (onRequest) {
   const server = yield new Promise(resolve => {

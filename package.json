@@ -7,7 +7,7 @@
     "download-npm-package": "bin/cli.js"
   },
   "scripts": {
-    "test": "nyc babel-tape-runner test.js && semistandard | snazzy",
+    "test": "xo && nyc babel-tape-runner test.js",
     "build": "rm -rf dist && mkdir -p dist && babel lib --out-dir dist",
     "watch": "rm -rf dist && mkdir -p dist && babel -w lib --out-dir dist",
     "prepublish": "npm run build"
@@ -27,6 +27,7 @@
     "download-package-tarball": "^1.0.0",
     "get-package-json-from-registry": "^2.0.0",
     "home": "^1.0.1",
+    "mkdirp": "^0.5.1",
     "mkdirp-then": "^1.2.0",
     "npm-package-arg": "^4.2.0",
     "registry-auth-token": "^2.0.0",
@@ -40,9 +41,13 @@
     "bluebird": "^3.4.1",
     "http-shutdown": "^1.0.3",
     "nyc": "^7.0.0",
-    "semistandard": "^8.0.0",
-    "snazzy": "^4.0.0",
     "tapava": "^2.2.0",
-    "tar-stream": "^1.5.2"
+    "tar-stream": "^1.5.2",
+    "tmp": "0.0.28",
+    "xo": "^0.16.0"
+  },
+  "xo": {
+    "esnext": true,
+    "space": true
   }
 }
