@@ -9,8 +9,8 @@ import tmp from 'tmp';
 
 import {inject} from './lib';
 
-const setupHttpServer = function * (onRequest) {
-  const server = yield new Promise(resolve => {
+const setupHttpServer = async onRequest => {
+  const server = await new Promise(resolve => {
     const _server = http.createServer(onRequest).listen(0, () => resolve(_server));
   });
 
@@ -24,8 +24,10 @@ const setupHttpServer = function * (onRequest) {
   };
 };
 
-test('downloadNewPackage', function * (t) {
-  const {baseUrl, shutdown} = yield setupHttpServer((req, res) => {
+const createTmpDir = Promise.promisify(tmp.dir);
+
+test('downloadNewPackage', async t => {
+  const {baseUrl, shutdown} = await setupHttpServer((req, res) => {
     t.is(req.url, '/tarballs/foo-123.tgz');
     const pack = tar.pack();
     pack.entry({name: 'package/package.json'}, JSON.stringify({name: 'foo', version: '123'}));
@@ -40,14 +42,14 @@ test('downloadNewPackage', function * (t) {
       }
     });
   };
-  const [dir] = yield Promise.promisify(callback => tmp.dir(callback));
+  const dir = await createTmpDir();
   const arg = 'foo';
-  yield inject(getPackage)({arg, dir});
-  yield shutdown();
+  await inject(getPackage)({arg, dir});
+  await shutdown();
 });
 
-test('downloadNewPackage, none standard location in tar', function * (t) {
-  const {baseUrl, shutdown} = yield setupHttpServer((req, res) => {
+test('downloadNewPackage, none standard location in tar', async t => {
+  const {baseUrl, shutdown} = await setupHttpServer((req, res) => {
     t.is(req.url, '/tarballs/foo-123.tgz');
     const pack = tar.pack();
     pack.entry({name: 'foo/package.json'}, JSON.stringify({name: 'foo', version: '123'}));
@@ -62,8 +64,8 @@ test('downloadNewPackage, none standard location in tar', function * (t) {
       }
     });
   };
-  const [dir] = yield Promise.promisify(callback => tmp.dir(callback));
+  const dir = await createTmpDir();
   const arg = 'foo';
-  yield inject(getPackage)({arg, dir});
-  yield shutdown();
+  await inject(getPackage)({arg, dir});
+  await shutdown();
 });
