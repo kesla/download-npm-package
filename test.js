@@ -1,30 +1,11 @@
 import {createGzip} from 'zlib';
-import http from 'http';
 
-import Promise from 'bluebird';
 import test from 'tapava';
 import tar from 'tar-stream';
-import shutdown from 'http-shutdown';
-import tmp from 'tmp';
+import setupHttpServer from 'http-test-server';
+import tmp from 'then-tmp';
 
 import {inject} from './lib';
-
-const setupHttpServer = async onRequest => {
-  const server = await new Promise(resolve => {
-    const _server = http.createServer(onRequest).listen(0, () => resolve(_server));
-  });
-
-  shutdown(server);
-
-  return {
-    shutdown: () => new Promise(resolve => {
-      server.shutdown(resolve);
-    }),
-    baseUrl: `http://localhost:${server.address().port}`
-  };
-};
-
-const createTmpDir = Promise.promisify(tmp.dir);
 
 test('downloadNewPackage', async t => {
   const {baseUrl, shutdown} = await setupHttpServer((req, res) => {
@@ -42,7 +23,7 @@ test('downloadNewPackage', async t => {
       }
     });
   };
-  const dir = await createTmpDir();
+  const {path: dir} = await tmp.dir();
   const arg = 'foo';
   await inject(getPackage)({arg, dir});
   await shutdown();
@@ -64,7 +45,7 @@ test('downloadNewPackage, none standard location in tar', async t => {
       }
     });
   };
-  const dir = await createTmpDir();
+  const {path: dir} = await tmp.dir();
   const arg = 'foo';
   await inject(getPackage)({arg, dir});
   await shutdown();
