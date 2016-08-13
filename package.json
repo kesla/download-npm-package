@@ -39,7 +39,7 @@
     "babel-preset-es2015-node4": "^2.1.0",
     "babel-tape-runner": "^2.0.1",
     "http-test-server": "^1.0.0",
-    "nyc": "^7.0.0",
+    "nyc": "^8.0.0",
     "tapava": "^2.2.0",
     "tar-stream": "^1.5.2",
     "then-tmp": "^1.0.0",
