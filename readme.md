@@ -26,7 +26,7 @@ import downloadNpmPackage from 'download-npm-package';
 
 downloadNpmPackage({
   arg: 'modulname@version' // for example, npm@2 or @mic/version@latest etc
-  path: '/tmp' // package will be downlodaded to ${path}/packageName
+  dir: '/tmp' // package will be downlodaded to ${dir}/packageName
 }).then()
 ```
 
