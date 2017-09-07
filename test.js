@@ -1,3 +1,4 @@
+/* eslint-disable import/named */
 import {createGzip} from 'zlib';
 
 import test from 'tapava';
@@ -19,7 +20,7 @@ test('downloadNewPackage', async t => {
     t.is(arg, 'foo');
     return Promise.resolve({
       dist: {
-        tarball: `${baseUrl}/tarballs/foo-123.tgz`
+        tarball: `${baseUrl}tarballs/foo-123.tgz`
       }
     });
   };
@@ -41,7 +42,7 @@ test('downloadNewPackage, none standard location in tar', async t => {
     t.is(arg, 'foo');
     return Promise.resolve({
       dist: {
-        tarball: `${baseUrl}/tarballs/foo-123.tgz`
+        tarball: `${baseUrl}tarballs/foo-123.tgz`
       }
     });
   };
