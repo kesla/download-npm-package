@@ -26,7 +26,6 @@
     "download-package-tarball": "^1.0.0",
     "get-package-json-from-registry": "^2.0.0",
     "home": "^1.0.1",
-    "mkdirp": "^0.5.1",
     "mkdirp-then": "^1.2.0",
     "npm-package-arg": "^4.2.0",
     "registry-info": "^1.0.0"
