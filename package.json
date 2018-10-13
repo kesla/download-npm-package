@@ -7,7 +7,7 @@
     "download-npm-package": "bin/cli.js"
   },
   "scripts": {
-    "test": "xo && nyc babel-tape-runner test.js",
+    "test": "nyc babel-tape-runner test.js",
     "build": "rm -rf dist && mkdir -p dist && babel lib --out-dir dist",
     "watch": "rm -rf dist && mkdir -p dist && babel -w lib --out-dir dist",
     "prepublish": "npm run build"
@@ -32,20 +32,15 @@
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",
-    "babel-core": "^6.10.4",
+    "babel-core": "^6.26.3",
     "babel-plugin-syntax-async-functions": "6.13.0",
     "babel-plugin-transform-async-to-generator": "6.8.0",
     "babel-preset-es2015-node4": "^2.1.0",
     "babel-tape-runner": "^2.0.1",
     "http-test-server": "^1.0.0",
-    "nyc": "^8.1.0",
+    "nyc": "^13.1.0",
     "tapava": "^2.2.0",
     "tar-stream": "^1.5.2",
-    "then-tmp": "^1.0.0",
-    "xo": "^0.16.0"
-  },
-  "xo": {
-    "esnext": true,
-    "space": true
+    "then-tmp": "^1.0.0"
   }
 }
